@@ -5,4 +5,9 @@
 
     <bean id="user" class="org.example.User"></bean>
 
+    <bean id="book" class="org.example.Book">
+        <property name="bname" value="羊脂球"></property>
+        <property name="bauthor" value="莫泊桑"></property>
+    </bean>
+
 </beans>
