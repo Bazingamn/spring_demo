@@ -10,4 +10,9 @@
         <property name="bauthor" value="莫泊桑"></property>
     </bean>
 
+    <bean id="order" class="org.example.Order">
+        <constructor-arg name="oname" value="iphone13"></constructor-arg>
+        <constructor-arg name="address" value="北京市海淀区111号"></constructor-arg>
+    </bean>
+
 </beans>

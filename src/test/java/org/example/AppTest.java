@@ -37,4 +37,11 @@ public class AppTest
 
         System.out.println(book.toString());
     }
+
+    @Test
+    public void testOrder(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+        Order order = context.getBean("order", Order.class);
+        System.out.println(order.toString());
+    }
 }
