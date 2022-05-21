@@ -15,4 +15,9 @@
         <constructor-arg name="address" value="北京市海淀区111号"></constructor-arg>
     </bean>
 
+    <bean id="userDao" class="org.example.dao.UserDao"></bean>
+    <bean id="userService" class="org.example.service.UserService">
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+
 </beans>

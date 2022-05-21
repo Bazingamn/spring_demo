@@ -2,6 +2,7 @@ package org.example;
 
 import static org.junit.Assert.assertTrue;
 
+import org.example.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -43,5 +44,12 @@ public class AppTest
         ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
         Order order = context.getBean("order", Order.class);
         System.out.println(order.toString());
+    }
+
+    @Test
+    public void testForeignBean(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+        UserService userService = context.getBean("userService", UserService.class);
+        userService.add();
     }
 }
