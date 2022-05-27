@@ -4,7 +4,7 @@ import org.example.dao.UserDao;
 
 public class UserService {
 
-    UserDao userDao;
+    private UserDao userDao;
 
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
@@ -12,5 +12,6 @@ public class UserService {
 
     public void add(){
         System.out.println("userservice add ......");
+        userDao.add();
     }
 }

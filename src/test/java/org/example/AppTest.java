@@ -2,9 +2,12 @@ package org.example;
 
 import static org.junit.Assert.assertTrue;
 
+import org.example.bean.Emp;
+import org.example.collectiontype.Student;
 import org.example.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -51,5 +54,19 @@ public class AppTest
         ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
         UserService userService = context.getBean("userService", UserService.class);
         userService.add();
+    }
+
+    @Test
+    public void testInnerBean(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+        Emp emp = context.getBean("emp", Emp.class);
+        System.out.println(emp.toString());
+    }
+
+    @Test
+    public void testCollection(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+        Student student = context.getBean("student", Student.class);
+        System.out.println(student.toString());
     }
 }

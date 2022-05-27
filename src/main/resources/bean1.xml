@@ -15,9 +15,66 @@
         <constructor-arg name="address" value="北京市海淀区111号"></constructor-arg>
     </bean>
 
+    <!-- 外部bean -->
     <bean id="userDao" class="org.example.dao.UserDao"></bean>
     <bean id="userService" class="org.example.service.UserService">
         <property name="userDao" ref="userDao"></property>
+    </bean>
+
+    <!-- 测试内部bean -->
+    <bean id="emp" class="org.example.bean.Emp">
+        <property name="ename" value="Tony"></property>
+        <property name="gender" value="male"></property>
+        <property name="dept">
+            <bean class="org.example.bean.Dept">
+                <property name="dname" value="devlopement"></property>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- 测试集合属性注入 -->
+    <bean class="org.example.collectiontype.Student" id="student">
+        <!-- 数组 -->
+        <property name="courses">
+            <array>
+                <value>物理</value>
+                <value>数学</value>
+            </array>
+        </property>
+        <!-- list -->
+        <property name="list">
+            <list>
+                <value>java</value>
+                <value>python</value>
+                <value>go</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="Bruce Wayne" value="Batman"></entry>
+                <entry key="Peter Park" value="Spiderman"></entry>
+            </map>
+        </property>
+        <property name="set">
+            <set>
+                <value>佐菲</value>
+                <value>杰克</value>
+                <value>赛文</value>
+            </set>
+        </property>
+        <!-- 测试属性中注入对象类型的集合 -->
+        <property name="listcourse">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+        </property>
+    </bean>
+    <bean id="course1" class="org.example.collectiontype.Course">
+        <property name="cname" value="微积分"></property>
+    </bean>
+    <bean id="course2" class="org.example.collectiontype.Course">
+        <property name="cname" value="线性代数"></property>
     </bean>
 
 </beans>
