@@ -3,11 +3,11 @@ package org.example;
 import static org.junit.Assert.assertTrue;
 
 import org.example.bean.Emp;
+import org.example.collectiontype.Movie;
 import org.example.collectiontype.Student;
 import org.example.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -68,5 +68,7 @@ public class AppTest
         ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
         Student student = context.getBean("student", Student.class);
         System.out.println(student.toString());
+        Movie movie = context.getBean("movies", Movie.class);
+        System.out.println(movie.toString());
     }
 }
