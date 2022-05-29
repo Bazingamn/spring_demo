@@ -3,8 +3,10 @@ package org.example;
 import static org.junit.Assert.assertTrue;
 
 import org.example.bean.Emp;
+import org.example.collectiontype.Course;
 import org.example.collectiontype.Movie;
 import org.example.collectiontype.Student;
+import org.example.factorybean.MyBean;
 import org.example.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -70,5 +72,21 @@ public class AppTest
         System.out.println(student.toString());
         Movie movie = context.getBean("movies", Movie.class);
         System.out.println(movie.toString());
+    }
+
+    @Test
+    public void testFactoryBean(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+        Course course = context.getBean("myBean", Course.class);
+        System.out.println(course);
+    }
+
+    @Test
+    public void testLifeCycle(){
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+        User user = context.getBean("user", User.class);
+        System.out.println("4、获取到bean对象，可以调用");
+        System.out.println(user.toString());
+        context.close();
     }
 }

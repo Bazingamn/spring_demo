@@ -7,6 +7,7 @@ public class Course {
         this.cname = cname;
     }
 
+
     @Override
     public String toString() {
         return "Course{" +

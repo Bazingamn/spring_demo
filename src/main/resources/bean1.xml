@@ -5,8 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="user" class="org.example.User"></bean>
-
     <bean id="book" class="org.example.Book">
         <property name="bname" value="羊脂球"></property>
         <property name="bauthor" value="莫泊桑"></property>
@@ -88,5 +86,15 @@
     <bean id="movies" class="org.example.collectiontype.Movie">
         <property name="list" ref="movielist"></property>
     </bean>
+
+    <!-- 测试FactoryBean -->
+    <bean class="org.example.factorybean.MyBean" id="myBean" scope="prototype"></bean>
+
+    <!-- bean的生命周期 -->
+    <bean id="user" class="org.example.User" init-method="initMethod" destroy-method="destoryMethod">
+        <property name="name" value="Batman"></property>
+    </bean>
+    <!-- 配置后置处理器,会给所有配置的bean添加 -->
+    <bean class="org.example.bean.MyBeanPost" id="myBeanPost"></bean>
 
 </beans>
