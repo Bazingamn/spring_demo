@@ -89,4 +89,11 @@ public class AppTest
         System.out.println(user.toString());
         context.close();
     }
+
+    @Test
+    public void testXmlAutowire(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+        Emp emp = context.getBean("emp", Emp.class);
+        System.out.println(emp.toString());
+    }
 }
