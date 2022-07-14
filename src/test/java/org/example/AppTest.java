@@ -6,10 +6,12 @@ import org.example.bean.Emp;
 import org.example.collectiontype.Course;
 import org.example.collectiontype.Movie;
 import org.example.collectiontype.Student;
+import org.example.config.SpringConfig;
 import org.example.factorybean.MyBean;
 import org.example.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -99,7 +101,8 @@ public class AppTest
 
     @Test
     public void testServiceComponent(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+//        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         UserService userService = context.getBean("userService", UserService.class);
         System.out.println(userService);
         userService.add();
