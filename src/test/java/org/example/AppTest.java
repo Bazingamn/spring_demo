@@ -96,4 +96,12 @@ public class AppTest
         Emp emp = context.getBean("emp", Emp.class);
         System.out.println(emp.toString());
     }
+
+    @Test
+    public void testServiceComponent(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+        UserService userService = context.getBean("userService", UserService.class);
+        System.out.println(userService);
+        userService.add();
+    }
 }
