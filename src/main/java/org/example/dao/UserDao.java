@@ -1,8 +1,6 @@
 package org.example.dao;
 
-public class UserDao {
+public interface UserDao {
 
-    public void add(){
-        System.out.println("userdao add ......");
-    }
+    public void add();
 }
