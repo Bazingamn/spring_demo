@@ -8,4 +8,10 @@ public class UserDaoImpl implements UserDao{
     public void add() {
         System.out.println("userdao add ......");
     }
+
+    @Override
+    public int minus(int a, int b) {
+        System.out.println("方法执行了。。。");
+        return a - b;
+    }
 }

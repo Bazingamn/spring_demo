@@ -2,5 +2,7 @@ package org.example.dao;
 
 public interface UserDao {
 
-    public void add();
+    void add();
+
+    int minus(int a, int b);
 }
