@@ -107,4 +107,18 @@ public class AppTest
         System.out.println(userService);
         userService.add();
     }
+
+    @Test
+    public void testAopAnno() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean2.xml");
+        org.example.testaopano.User user = context.getBean("user", org.example.testaopano.User.class);
+        user.add();
+    }
+
+    @Test
+    public void testAopXml() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("beanAop.xml");
+        org.example.testAopXml.Book book = context.getBean("book", org.example.testAopXml.Book.class);
+        book.buy();
+    }
 }
