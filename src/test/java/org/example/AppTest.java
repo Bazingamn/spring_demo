@@ -9,6 +9,7 @@ import org.example.collectiontype.Student;
 import org.example.config.SpringConfig;
 import org.example.factorybean.MyBean;
 import org.example.service.UserService;
+import org.example.testJDBC.service.BookService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -120,5 +121,17 @@ public class AppTest
         ApplicationContext context = new ClassPathXmlApplicationContext("beanAop.xml");
         org.example.testAopXml.Book book = context.getBean("book", org.example.testAopXml.Book.class);
         book.buy();
+    }
+
+    @Test
+    public void testJdbcTemplate() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean2.xml");
+        BookService bookService = context.getBean("bookService", BookService.class);
+//        org.example.testJDBC.entity.Book book = new org.example.testJDBC.entity.Book(1002, "《追风筝的人》", "y");
+//        bookService.addBook(book);
+//        int count = bookService.queryCount();
+//        System.out.println("查询到 "+count+" 条记录");
+        org.example.testJDBC.entity.Book bookInfo = bookService.queryBookById(1001);
+        System.out.println(bookInfo);
     }
 }
