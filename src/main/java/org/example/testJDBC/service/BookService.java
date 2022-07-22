@@ -30,7 +30,18 @@ public class BookService {
         return bookDao.findAll();
     }
 
+    //批量添加
     public void batchAddBook(List<Object[]> objects) {
         bookDao.batchAddBook(objects);
+    }
+
+    //批量修改
+    public void batchUpdateBook(List<Object[]> objects) {
+        bookDao.batchUpdateBook(objects);
+    }
+
+    //批量删除
+    public void batchDeleteBook(List<Object[]> objects) {
+        bookDao.batchDeleteBook(objects);
     }
 }

@@ -134,20 +134,41 @@ public class AppTest
 //        bookService.addBook(book);
 //        int count = bookService.queryCount();
 //        System.out.println("查询到 "+count+" 条记录");
-        org.example.testJDBC.entity.Book bookInfo = bookService.queryBookById(1001);    //根据bookid查询单个book对象
-        System.out.println(bookInfo);
 
-        List<org.example.testJDBC.entity.Book> bookList = bookService.findAll();    //返回book对象列表
-        System.out.println(bookList);
+//        org.example.testJDBC.entity.Book bookInfo = bookService.queryBookById(1001);    //根据bookid查询单个book对象
+//        System.out.println(bookInfo);
+//
+//        List<org.example.testJDBC.entity.Book> bookList = bookService.findAll();    //返回book对象列表
+//        System.out.println(bookList);
 
         //批量插入对象
+//        List<Object[]> objects = new ArrayList<>();
+//        Object[] o1 = {1003, "《基督山伯爵》", "N"};
+//        Object[] o2 = {1004, "《百年孤独》", "N"};
+//        Object[] o3 = {1005, "《羊脂球》", "Y"};
+//        objects.add(o1);
+//        objects.add(o2);
+//        objects.add(o3);
+//        bookService.batchAddBook(objects);
+
+//        //批量修改对象
+//        List<Object[]> objects = new ArrayList<>();
+//        Object[] o1 = {"《三国演义》", "N", 1003};
+//        Object[] o2 = {"《水浒传》", "N", 1004};
+//        Object[] o3 = {"《红楼梦》", "Y", 1005};
+//        objects.add(o1);
+//        objects.add(o2);
+//        objects.add(o3);
+//        bookService.batchUpdateBook(objects);
+
+        //批量删除对象
         List<Object[]> objects = new ArrayList<>();
-        Object[] o1 = {1003, "《基督山伯爵》", "N"};
-        Object[] o2 = {1004, "《百年孤独》", "N"};
-        Object[] o3 = {1005, "《羊脂球》", "Y"};
+        Object[] o1 = {1003};
+        Object[] o2 = {1004};
+        Object[] o3 = {1005};
         objects.add(o1);
         objects.add(o2);
         objects.add(o3);
-        bookService.batchAddBook(objects);
+        bookService.batchDeleteBook(objects);
     }
 }

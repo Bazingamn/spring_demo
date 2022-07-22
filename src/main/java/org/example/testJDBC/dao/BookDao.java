@@ -14,4 +14,8 @@ public interface BookDao {
     List<Book> findAll();
 
     void batchAddBook(List<Object[]> objects);
+
+    void batchUpdateBook(List<Object[]> objects);
+
+    void batchDeleteBook(List<Object[]> objects);
 }
