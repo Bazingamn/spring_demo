@@ -2,33 +2,33 @@ package org.example.testJDBC.entity;
 
 public class Book {
 
-    private Integer id;
-    private String name;
+    private Integer book_id;
+    private String bookname;
     private String status;
 
     public Book() {
     }
 
-    public Book(Integer id, String name, String status) {
-        this.id = id;
-        this.name = name;
+    public Book(Integer book_id, String bookname, String status) {
+        this.book_id = book_id;
+        this.bookname = bookname;
         this.status = status;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getBook_id() {
+        return book_id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setBook_id(Integer book_id) {
+        this.book_id = book_id;
     }
 
-    public String getName() {
-        return name;
+    public String getBookname() {
+        return bookname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBookname(String bookname) {
+        this.bookname = bookname;
     }
 
     public String getStatus() {
@@ -42,8 +42,8 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "book_id=" + book_id +
+                ", bookname='" + bookname + '\'' +
                 ", status='" + status + '\'' +
                 '}';
     }
