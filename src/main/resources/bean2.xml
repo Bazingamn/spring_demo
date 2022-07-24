@@ -14,10 +14,10 @@
 <!--    &lt;!&ndash; 开启Aspect生成代理对象 &ndash;&gt;-->
 <!--    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
 
-    <context:component-scan base-package="org.example.testJDBC"></context:component-scan>
+    <context:component-scan base-package="org.example"></context:component-scan>
 
     <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource" destroy-method="close">
-        <property name="url" value="jdbc:mysql://localhost:3306/test_db"></property>
+        <property name="url" value="jdbc:mysql://10.84.185.221:3306/test_db"></property>
         <property name="username" value="root"></property>
         <property name="password" value="fightinggold12"></property>
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
@@ -27,4 +27,5 @@
     <bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate">
         <property name="dataSource" ref="dataSource"></property>
     </bean>
+
 </beans>

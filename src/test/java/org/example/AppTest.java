@@ -10,6 +10,7 @@ import org.example.config.SpringConfig;
 import org.example.factorybean.MyBean;
 import org.example.service.UserService;
 import org.example.testJDBC.service.BookService;
+import org.example.testTransaction.service.accountService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -170,5 +171,12 @@ public class AppTest
         objects.add(o2);
         objects.add(o3);
         bookService.batchDeleteBook(objects);
+    }
+
+    @Test
+    public void testTransaction() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean2.xml");
+        accountService accountService = context.getBean("accountService", org.example.testTransaction.service.accountService.class);
+        accountService.trade();
     }
 }
