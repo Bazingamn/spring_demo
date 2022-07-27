@@ -179,4 +179,11 @@ public class AppTest
         accountService accountService = context.getBean("accountService", org.example.testTransaction.service.accountService.class);
         accountService.trade();
     }
+
+    @Test
+    public void testTransactionAnno() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        accountService accountService = context.getBean("accountService", org.example.testTransaction.service.accountService.class);
+        accountService.trade();
+    }
 }

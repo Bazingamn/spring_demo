@@ -16,6 +16,7 @@ public class accountService {
 
     public void trade() {
         accountDao.addMoney();
+//        int i = 10/0;
         accountDao.reduceMoney();
     }
 }

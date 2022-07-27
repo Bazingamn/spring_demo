@@ -11,11 +11,6 @@
                             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
                             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-<!--    &lt;!&ndash;测试aop切面 &ndash;&gt;-->
-<!--    <context:component-scan base-package="org.example.testaopano"></context:component-scan>-->
-<!--    &lt;!&ndash; 开启Aspect生成代理对象 &ndash;&gt;-->
-<!--    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
-
     <context:component-scan base-package="org.example"></context:component-scan>
 
     <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource" destroy-method="close">
@@ -35,7 +30,15 @@
         <!-- 注入数据源 -->
         <property name="dataSource" ref="dataSource"></property>
     </bean>
-    <!-- 开启事务 -->
-    <tx:annotation-driven transaction-manager="dataSourceTransactionManager"></tx:annotation-driven>
-
+    <!-- 配置通知 -->
+    <tx:advice id="transactionInterceptor">
+        <tx:attributes>
+            <!-- 配置在哪些方法上 -->
+            <tx:method name="trade" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+    <aop:config>
+        <aop:pointcut id="p" expression="execution(* org.example.testTransaction.service.accountService(..))"/>
+        <aop:advisor advice-ref="transactionInterceptor" pointcut-ref="p"></aop:advisor>
+    </aop:config>
 </beans>
