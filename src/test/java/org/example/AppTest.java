@@ -2,6 +2,7 @@ package org.example;
 
 import static org.junit.Assert.assertTrue;
 
+import org.example.bean.Dancer;
 import org.example.bean.Emp;
 import org.example.collectiontype.Course;
 import org.example.collectiontype.Movie;
@@ -185,5 +186,12 @@ public class AppTest
         ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         accountService accountService = context.getBean("accountService", org.example.testTransaction.service.accountService.class);
         accountService.trade();
+    }
+
+    @Test
+    public void testFactory() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("testFactoryBean.xml");
+        Dancer dancer = context.getBean("dancer", Dancer.class);
+        dancer.Show();
     }
 }

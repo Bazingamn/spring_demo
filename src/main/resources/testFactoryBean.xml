@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 测试FactoryMethod，利用工厂方法来创建bean，而不是用spring来配置 -->
+    <!-- 静态工厂方法实例化bean，factory-method:允许我们调用一个指定的静态工厂方法，
+    从而代替构造方法来创建一个类的实例(即指定静态工厂方法名)
+    注意： 这里的class属性的值不是Bean实例的实现类，而是生成Bean实例的静态工厂类-->
+    <bean class="org.example.bean.Stage" id="stage" factory-method="getInstance"></bean>
+    <bean class="org.example.bean.Dancer" id="dancer">
+        <property name="stage" ref="stage"></property>
+    </bean>
+</beans>
